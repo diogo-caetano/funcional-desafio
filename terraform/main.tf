@@ -1,4 +1,4 @@
-#Setando s3 criada para armazenar os arquivos tfstate
+#Informando s3 criada para armazenar os arquivos tfstate
 terraform {
   backend "s3" {
     bucket = "desafiofuncional"
@@ -6,7 +6,7 @@ terraform {
     region = "us-east-1"
   }
 
-#Setando provider
+#Informando provider
   required_providers {
     aws = {
       source  = "hashicorp/aws"
