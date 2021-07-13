@@ -1,0 +1,2 @@
+[funcional]
+54.196.134.184 ansible_user=centos ansible_ssh_common_args='-i ./desafio-funcional.pem -o StrictHostKeyChecking=no'

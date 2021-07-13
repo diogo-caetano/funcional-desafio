@@ -1,0 +1,9 @@
+- hosts: funcional
+  become: true
+
+  tasks:
+    - name: Transfer the script
+      copy: src=./script/backup.sh dest=/home/centos mode=0777
+
+    - name: Execute the script
+      command: sh /home/centos/backup.sh

@@ -1,0 +1,49 @@
+- hosts: funcional
+  become: true
+
+  tasks:
+    - name: criar diretorio se ele não existir
+      ansible.builtin.file:
+        path: /opt/funcional
+        state: directory
+        mode: '0755'
+
+    - name: Criar um filesystem xfs em /dev/xvdb
+      community.general.filesystem:
+        fstype: xfs
+        dev: /dev/xvdb
+        
+    - name: montar disco
+      mount:
+        backup: yes
+        path: "/opt/funcional"
+        src: /dev/xvdb
+        opts: defaults,nofail
+        state: mounted
+        fstype: xfs
+
+    - name: instalação de pacotes necessários 
+      yum:
+        update_cache: yes
+        pkg:
+        - epel-release
+        
+    - name: instalação de pacotes necessários 
+      yum:
+        update_cache: yes
+        pkg:
+        - epel-release
+        - nginx
+        - zip
+        - htop  
+        - java-1.8.0-openjdk
+
+    - name: garante que o nginx inicie ao reiniciar
+      service:
+        name: nginx
+        enabled: yes
+        state: started
+
+    - name: Mudar a timezone para America/Sao_Paulo
+      community.general.timezone:
+        name: America/Sao_Paulo
