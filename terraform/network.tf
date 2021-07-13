@@ -1,3 +1,76 @@
+#Criando VPC
+resource "aws_vpc" "VPC_1" {
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = "true"
+  enable_dns_hostnames = "true"
+
+  tags = {
+    Name = "VPC_1"
+  }
+
+}
+
+
+#Criando Subnet
+resource "aws_subnet" "subnet_1" {
+  vpc_id                  = aws_vpc.VPC_1.id
+  cidr_block              = "10.0.10.0/24"
+  map_public_ip_on_launch = "true"
+  availability_zone       = "us-east-1a"
+
+  tags = {
+    "Name" = "subnet_1"
+  }
+
+}
+
+#Criando Security Group
+resource "aws_security_group" "FUNCIONAL_SG" {
+  description = "Administrado por Diogo"
+  vpc_id      = aws_vpc.VPC_1.id
+  name        = "FUNCIONAL_SG"
+
+  ingress {
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 22
+    to_port     = 22
+  }
+
+  ingress {
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 80
+    to_port     = 80
+  }
+
+  ingress {
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 443
+    to_port     = 443
+  }
+
+  ingress {
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 8888
+    to_port     = 8888
+  }
+
+  egress {
+    protocol    = -1
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+  }
+
+  tags = {
+    "Name" = "FUNCIONAL_SG"
+  }
+
+}
+
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.VPC_1.id
   tags = {

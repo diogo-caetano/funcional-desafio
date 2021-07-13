@@ -2,8 +2,8 @@
   become: true
 
   tasks:
-    - name: Transfer the script
+    - name: Copia o script para o host remoto
       copy: src=./script/backup.sh dest=/home/centos mode=0777
 
-    - name: Execute the script
+    - name: Executa o script
       command: sh /home/centos/backup.sh

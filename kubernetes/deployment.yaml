@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-desafiofuncional
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app-desafiofuncional
+  template:
+    metadata:
+      labels:
+        app: app-desafiofuncional
+    spec:
+      containers:
+      - name: app
+        image: hashicorp/http-echo
+        envFrom:
+        - configMapRef:
+          name: app-desafiofuncional
+        env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: app-desafiofuncional
+              key: db_user
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: app-desafiofuncional
+              key: db_pass
+        ports:
+        - containerPort: 3000

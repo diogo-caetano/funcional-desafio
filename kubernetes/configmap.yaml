@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-desafiofuncional
+data:
+  NODE_ENV:  "prd"
+  NODE_PORT:  "3000"

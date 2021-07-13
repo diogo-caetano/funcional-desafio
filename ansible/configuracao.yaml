@@ -13,16 +13,16 @@
         fstype: xfs
         dev: /dev/xvdb
         
-    - name: montar disco
+    - name: montar disco no /opt/funcional
       mount:
-        backup: yes
+        backup: yes #backup do fstab
         path: "/opt/funcional"
         src: /dev/xvdb
         opts: defaults,nofail
         state: mounted
         fstype: xfs
 
-    - name: instalação de pacotes necessários 
+    - name: instalação de repositorio do EPEL 
       yum:
         update_cache: yes
         pkg:
@@ -32,7 +32,6 @@
       yum:
         update_cache: yes
         pkg:
-        - epel-release
         - nginx
         - zip
         - htop  
