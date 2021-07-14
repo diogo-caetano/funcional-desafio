@@ -1,19 +1,3 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-
-https://i.pinimg.com/originals/28/ec/74/28ec7440a57536eebad2931517aa1cce.png
-<br />
-<p align="center">
-  <a href="https://github.com/diogo-caetano/funcional-desafio">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
   <h3 align="center">Desafio Funcional</h3>
 
   <p align="center">
@@ -22,11 +6,11 @@ https://i.pinimg.com/originals/28/ec/74/28ec7440a57536eebad2931517aa1cce.png
     <a href="https://github.com/diogo-caetano/funcional-desafio"></a>
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://github.com/diogo-caetano/funcional-desafio">View Demo</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    <a href="https://github.com/diogo-caetano/funcional-desafio/issues">Report Bug</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    <a href="https://github.com/diogo-caetano/funcional-desafio/issues">Request Feature</a>
   </p>
 </p>
 
