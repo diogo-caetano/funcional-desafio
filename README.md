@@ -18,19 +18,18 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <summary><h2 style="display: inline-block">Conteúdo</h2></summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
+      <a href="#about-the-project">Sobre o Projeto</a>  
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#getting-started">Começando</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#prerequisites">Pré requisitos</a></li>
+        <li><a href="#installation">Terraform</a></li>
+        <li><a href="#installation">Ansible</a></li>
+        <li><a href="#installation">Kubernetes</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
