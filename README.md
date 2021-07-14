@@ -36,6 +36,9 @@ https://docs.microsoft.com/pt-br/windows/wsl/install-win10
 
 Após a instalação do terraform, acesse a pasta terraform dentro do projeto e execute o comando terraform init.
 
+![image](https://user-images.githubusercontent.com/44071237/125692969-1f313683-172e-43c6-8bd2-94d0842be595.png)
+
+
 * How/where to download your program
 * Any modifications needed to be made to files/folders
 
