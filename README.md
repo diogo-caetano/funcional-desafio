@@ -11,13 +11,13 @@ Projeto usando as tecnologias Terraform, Ansible e Kubernetes.
 ### Dependências
 Algumas ferramentas precisam ser instaladas previamente, caso já não estejam.
 
-#Terraform
+-> Terraform
 https://learn.hashicorp.com/tutorials/terraform/install-cli
 
-#AWS Cli version 2
+-> AWS Cli version 2
 https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
 
-#Ansible
+-> Ansible
 https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 
 ps: Caso esteja utilizando o sistema operacional windows, recomendo a utilização do WSL2 para simular uma distro Linux a sua escolha dentro do windows e efetuar a instalação do Ansible nela.
@@ -25,6 +25,12 @@ ps: Caso esteja utilizando o sistema operacional windows, recomendo a utilizaç�
 Dependências do Ansible
 community.general
 ansible.posix
+
+Existe um script dentro da pasta funcional-desafio/ansible/script/ chamado dependency.sh que efetua a instalação das dependências.
+
+-> WSL2
+https://docs.microsoft.com/pt-br/windows/wsl/install-win10
+
 
 
 * Describe any prerequisites, libraries, OS version, etc., needed before installing program.
