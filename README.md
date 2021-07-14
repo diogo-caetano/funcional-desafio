@@ -4,20 +4,20 @@ Desafio proposto para o cargo Analista de Infra Cloud.
 
 ## Description
 
-Caso de uso usando as tecnologias Terraform, Ansible e Kubernetes.
+Projeto usando as tecnologias Terraform, Ansible e Kubernetes.
 
 ## Começando
 
 ### Dependências
 Algumas ferramentas precisam ser instaladas previamente, caso já não estejam.
 
-Terraform
+#Terraform
 https://learn.hashicorp.com/tutorials/terraform/install-cli
 
-AWS Cli version 2
+#AWS Cli version 2
 https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
 
-Ansible
+#Ansible
 https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 
 ps: Caso esteja utilizando o sistema operacional windows, recomendo a utilização do WSL2 para simular uma distro Linux a sua escolha dentro do windows e efetuar a instalação do Ansible nela.
