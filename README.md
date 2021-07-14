@@ -32,7 +32,9 @@ Existe um script dentro da pasta funcional-desafio/ansible/script/ chamado depen
 https://docs.microsoft.com/pt-br/windows/wsl/install-win10
 
 
-### Installing
+### Executando Terraform
+
+Após a instalação do terraform, acesse a pasta terraform dentro do projeto e execute o comando terraform init.
 
 * How/where to download your program
 * Any modifications needed to be made to files/folders
