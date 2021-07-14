@@ -20,13 +20,14 @@ https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
 -> Ansible : 
 https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html
 
-ps: Caso esteja utilizando o sistema operacional windows, recomendo a utilização do WSL2 para simular uma distro Linux a sua escolha dentro do windows e efetuar a instalação do Ansible nela.
 
 -> Dependências do Ansible : 
 community.general
 ansible.posix
 
 Existe um script dentro da pasta funcional-desafio/ansible/script/ chamado dependency.sh que efetua a instalação das dependências.
+
+-> Caso esteja utilizando o sistema operacional windows, recomendo a utilização do WSL2 para simular uma distro Linux a sua escolha dentro do windows e efetuar a instalação do Ansible nela.
 
 -> WSL2 : 
 https://docs.microsoft.com/pt-br/windows/wsl/install-win10
