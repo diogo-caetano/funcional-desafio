@@ -5,12 +5,10 @@ output "instance_public_ip" {
 
 output "instance_vpc" {
   value = aws_vpc.VPC_1.id
-
 }
 
 output "instance_subnet" {
   value = aws_subnet.subnet_1.id
-
 }
 
 output "aws_vpc_id" {

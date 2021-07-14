@@ -34,3 +34,5 @@ terraform.rc
 
 # chave SSH do servidor
 desafio.pem
+# arquivo secret-vars do ansible
+secret-vars.yaml

@@ -79,13 +79,14 @@ resource "aws_internet_gateway" "igw" {
 
 }
 
+#Criando route table
 resource "aws_route_table" "public_rt" {
   vpc_id = aws_vpc.VPC_1.id
 
   route = [{
-    //associate subnet can reach everywhere
+    //subnet associada pode acessar qualquer local
     cidr_block = "0.0.0.0/0"
-    //rt uses this igw to reach internet
+    //rt usa essa igw para acessar a internet
     gateway_id                 = "${aws_internet_gateway.igw.id}"
     carrier_gateway_id         = ""
     destination_prefix_list_id = ""
@@ -105,6 +106,7 @@ resource "aws_route_table" "public_rt" {
   }
 }
 
+#Associando route table com subnet
 resource "aws_route_table_association" "rt_public_subnet" {
   subnet_id      = aws_subnet.subnet_1.id
   route_table_id = aws_route_table.public_rt.id

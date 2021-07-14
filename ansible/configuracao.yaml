@@ -2,7 +2,7 @@
   become: true
 
   tasks:
-    - name: criar diretorio se ele não existir
+    - name: Criar diretorio se ele não existir
       ansible.builtin.file:
         path: /opt/funcional
         state: directory
@@ -13,7 +13,7 @@
         fstype: xfs
         dev: /dev/xvdb
         
-    - name: montar disco no /opt/funcional
+    - name: Montar disco no /opt/funcional
       mount:
         backup: yes #backup do fstab
         path: "/opt/funcional"
@@ -22,13 +22,13 @@
         state: mounted
         fstype: xfs
 
-    - name: instalação de repositorio do EPEL 
+    - name: Instalação de repositorio do EPEL 
       yum:
         update_cache: yes
         pkg:
         - epel-release
         
-    - name: instalação de pacotes necessários 
+    - name: Instalação de pacotes necessários 
       yum:
         update_cache: yes
         pkg:
@@ -36,8 +36,20 @@
         - zip
         - htop  
         - java-1.8.0-openjdk
+        - python-pip
+        
+    - name: Usa o PIP para instalar o Boto3 e Botocore
+      pip:
+        name:
+          - boto3
+          - botocore  
 
-    - name: garante que o nginx inicie ao reiniciar
+    - name: Inserindo Página Index.html
+      template:
+        src: index.html
+        dest: /usr/share/nginx/html/index.html
+
+    - name: Garante que o nginx inicie ao reiniciar
       service:
         name: nginx
         enabled: yes

@@ -7,19 +7,19 @@ terraform {
   }
 
 #Informando provider
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.27"
-    }
+required_providers {
+  aws = {
+    source  = "hashicorp/aws"
+    version = "~> 3.27"
   }
+}
 
   required_version = ">= 0.14.9"
 }
 
 #Criando Volume Root
 resource "aws_ebs_volume" "root" {
-  availability_zone = "us-east-1a"
+  availability_zone = var.aws_availability_zone
   size              = 15
   tags = {
     "Name" = "Root"
@@ -28,7 +28,7 @@ resource "aws_ebs_volume" "root" {
 
 #Criando Volume Funcional
 resource "aws_ebs_volume" "funcional_dsk" {
-  availability_zone = "us-east-1a"
+  availability_zone = var.aws_availability_zone
   size              = 15
   tags = {
     "Name" = "Funcional"
@@ -43,13 +43,13 @@ resource "aws_key_pair" "deployer" {
 #Criando Instância
 resource "aws_instance" "servidor1" {
   ami                         = var.ami
-  instance_type               = var.instance_type
+  instance_type               = var.aws_instance_type
   vpc_security_group_ids      = ["${aws_security_group.FUNCIONAL_SG.id}"]
   subnet_id                   = aws_subnet.subnet_1.id
   associate_public_ip_address = true
   key_name                    = var.key_name
   tags = {
-    Name = var.instance_name
+    Name = var.aws_instance_name
   }
   root_block_device {
     volume_size = 15
