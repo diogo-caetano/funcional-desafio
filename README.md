@@ -36,7 +36,7 @@ https://docs.microsoft.com/pt-br/windows/wsl/install-win10
 
 O arquivo terraform.tfstate está ignorado pelo git pois o mesmo está em um bucket na s3 como backup, conforme podem visualizar no arquivo main.tf.
 O arquivo terraform.tfvars está ignorado pelo git por motivos de segurança, pois será nele que botaremos as informações sensíveis (aws access key, aws secret key e etc.).
-Crie um arquivo terraform.tfvars para popular as variáveis que usaremos (que constar no arquivo vars.tf).
+Crie um arquivo terraform.tfvars para popular as variáveis que usaremos no arquivo vars.tf.
 As variáveis a serem populadas são:
 - aws_access_key
 - aws_secret_key
@@ -49,7 +49,8 @@ As variáveis a serem populadas são:
 - keypair
 
 Antes de executar os comandos do terraform, é necessário popular as variáveis acima e criar um par de chaves rsa.
-Criando par de chaves no Linux:
+
+**Criando par de chaves no Linux:**
 - ssh-keygen -t rsa
 - Insira o local aonde deseja salvar a chave
 - Insira uma senha para acessar a chave
