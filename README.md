@@ -34,13 +34,37 @@ https://docs.microsoft.com/pt-br/windows/wsl/install-win10
 
 ### Executando Terraform
 
+O arquivo terraform.tfstate está ignorado pelo git pois o mesmo está em um bucket na s3 como backup, conforme podem visualizar no arquivo main.tf.
+O arquivo terraform.tfvars está ignorado pelo git por motivos de segurança, pois será nele que botaremos as informações sensíveis (aws access key, aws secret key e etc.).
+Crie um arquivo terraform.tfvars para popular as variáveis que usaremos (que constar no arquivo vars.tf).
+As variáveis a serem populadas são:
+- aws_access_key
+- aws_secret_key
+- aws_region
+- aws_availability_zone
+- aws_instance_name
+- aws_instance_type
+- ami
+- key_name
+- keypair
+
+Antes de executar os comandos do terraform, é necessário popular as variáveis acima e criar um par de chaves rsa.
+Criando par de chaves no Linux:
+- ssh-keygen -t rsa
+- Insira o local aonde deseja salvar a chave
+- Insira uma senha para acessar a chave
+
+Esse processo gerará 2 arquivos. id_rsa e id_rsa.pub. A chave privada (que ficará com você) é a id_rsa.A chave pública,que é a id_rsa.pub, deverá ser inserida no campo keypair do arquivo terraform.tfvars. Basta dar um cat id_rsa.pub aonde criou a chave para poder copiar o texto para o arquivo .tf.
+
+Para criar chaves RSA no windows, há algumas maneiras diferentes. Deixo o link abaixo para consulta.
+https://phoenixnap.com/kb/generate-ssh-key-windows-10
+
+
+
 Após a instalação do terraform, acesse a pasta terraform dentro do projeto e execute o comando terraform init.
-
-![image](https://user-images.githubusercontent.com/44071237/125692969-1f313683-172e-43c6-8bd2-94d0842be595.png)
-
 Em seguida execute o comando terraform plan para exibir uma lista de tudo que será construído utilizando o terraform.
 
-![image](https://user-images.githubusercontent.com/44071237/125693310-16243fb1-cb38-4c3a-b423-b0b90c752ac9.png)
+
 
 
 
