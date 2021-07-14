@@ -22,8 +22,7 @@ https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.ht
 
 
 -> Dependências do Ansible : 
-community.general
-ansible.posix
+community.general , ansible.posix
 
 Existe um script dentro da pasta funcional-desafio/ansible/script/ chamado dependency.sh que efetua a instalação das dependências.
 
