@@ -38,6 +38,11 @@ Após a instalação do terraform, acesse a pasta terraform dentro do projeto e 
 
 ![image](https://user-images.githubusercontent.com/44071237/125692969-1f313683-172e-43c6-8bd2-94d0842be595.png)
 
+Em seguida execute o comando terraform plan para exibir uma lista de tudo que será construído utilizando o terraform.
+
+![image](https://user-images.githubusercontent.com/44071237/125693310-16243fb1-cb38-4c3a-b423-b0b90c752ac9.png)
+
+
 
 * How/where to download your program
 * Any modifications needed to be made to files/folders
