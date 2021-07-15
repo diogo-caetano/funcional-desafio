@@ -87,5 +87,5 @@ Para realizar o backup do disco, basta usar o comando:  ansible-playbook  -i ./h
 
 
 ## Authors
-Diogo Pereira Caetano dos Santos
+Diogo Pereira Caetano dos Santos - 
 diogo_caetano@live.com
