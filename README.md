@@ -34,9 +34,11 @@ https://docs.microsoft.com/pt-br/windows/wsl/install-win10
 
 ### Executando Terraform
 
-O arquivo terraform.tfstate está ignorado pelo git pois o mesmo está em um bucket na s3 como backup, conforme podem visualizar no arquivo main.tf.
+O arquivo terraform.tfstate está ignorado pelo git pois o mesmo está em um bucket na s3 como backup, conforme podem visualizar no arquivo main.tf. O bloco de código está comentado e se quiser replicar basta criar um bucket na s3 e inserir as informações necessárias no código.
+
 O arquivo terraform.tfvars está ignorado pelo git por motivos de segurança, pois será nele que botaremos as informações sensíveis (aws access key, aws secret key e etc.).
-Crie um arquivo terraform.tfvars para popular as variáveis que usaremos no arquivo vars.tf.
+
+Crie um arquivo terraform.tfvars dentro da pasta terraform, para popular as variáveis que usaremos no arquivo vars.tf.
 As variáveis a serem populadas são:
 - aws_access_key
 - aws_secret_key
@@ -60,10 +62,28 @@ Esse processo gerará 2 arquivos. id_rsa e id_rsa.pub. A chave privada (que fica
 Para criar chaves RSA no windows, há algumas maneiras diferentes. Deixo o link abaixo para consulta.
 https://phoenixnap.com/kb/generate-ssh-key-windows-10
 
+Depois de popular o arquivo terraform.tfvars que criou e efetuar a criação da chave rsa, navegue pelo seu terminal de preferência até a pasta terraform. Dentro dela encontram-se todos os arquivos necessários para subir a infraestrutura solicitada.
 
+- Execute o comando terraform init para inicializar o terraform na pasta.
+- Execute o comando terraform validate caso queira validar o código.
+- Execute o comando terraform fmt nomedoarquivo.tf para formatar o código caso tenha feito alguma alteração e não sabe se a identação dos arquivos está correta.
+- Execute o comando terraform plan para que o terraform mostre um plano de tudo que será criado utilizando os arquivos da pasta terraform
+- Execute o comando terraform apply para provisionar a infraestrutura. Ele pedirá uma resposta yes depois de alguns segundos caso realmente queira prosseguir. Caso não deseje prosseguir basta digitar qualquer outra coisa. 
 
-Após a instalação do terraform, acesse a pasta terraform dentro do projeto e execute o comando terraform init.
-Em seguida execute o comando terraform plan para exibir uma lista de tudo que será construído utilizando o terraform.
+### Executando Ansible
+
+Navegue até a pasta do ansible no projeto. Lá você irá encontrar os seguintes arquivos:
+-
+-
+-
+-
+-
+-
+-
+
+Usar o output gerado pelo terraform com o IP publico da instância criada para popular o arquivo hosts.yaml dentro da pasta do ansible.
+Rodar o comando:  ansible-playbook  -i ./hosts.yaml ./configuracao.yaml
+Para realizar o backup do disco, basta usar o comando:  ansible-playbook  -i ./hosts.yaml ./backup.yaml
 
 
 
