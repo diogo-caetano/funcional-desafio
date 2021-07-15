@@ -71,66 +71,21 @@ Depois de popular o arquivo terraform.tfvars que criou e efetuar a criação da 
 - Execute o comando terraform apply para provisionar a infraestrutura. Ele pedirá uma resposta yes depois de alguns segundos caso realmente queira prosseguir. Caso não deseje prosseguir basta digitar qualquer outra coisa. 
 
 ### Executando Ansible
+Os arquivos secret-vars.yaml e a chave rsa estão ocultos para o git por motivos de segurança. Foi deixado um arquivo .example no lugar do secret-vars.
 
 Navegue até a pasta do ansible no projeto. Lá você irá encontrar os seguintes arquivos:
--
--
--
--
--
--
--
+- Pasta Scripts, contendo os scripts de backup e de dependecys.
+- O arquivo backup.yaml
+- O arquivo configuracao.yaml
+- O arquivo hosts.yaml
+- O arquivo index.html
+- O arquivo secret-vars.yaml.example
 
 Usar o output gerado pelo terraform com o IP publico da instância criada para popular o arquivo hosts.yaml dentro da pasta do ansible.
 Rodar o comando:  ansible-playbook  -i ./hosts.yaml ./configuracao.yaml
 Para realizar o backup do disco, basta usar o comando:  ansible-playbook  -i ./hosts.yaml ./backup.yaml
 
 
-
-
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
-
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
-
-## Help
-
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
-
 ## Authors
-
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
-
-## Version History
-
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
-
-## License
-
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
-
-## Acknowledgments
-
-Inspiration, code snippets, etc.
-* [awesome-readme](https://github.com/matiassingers/awesome-readme)
-* [PurpleBooth](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [dbader](https://github.com/dbader/readme-template)
-* [zenorocha](https://gist.github.com/zenorocha/4526327)
-* [fvcproductions](https://gist.github.com/fvcproductions/1bfc2d4aecb01a834b46)
+Diogo Pereira Caetano dos Santos
+diogo_caetano@live.com
