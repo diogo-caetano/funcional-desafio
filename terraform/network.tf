@@ -21,6 +21,9 @@ resource "aws_subnet" "subnet_1" {
   tags = {
     "Name" = "subnet_1"
   }
+  depends_on = [
+    aws_vpc.VPC_1
+  ]
 
 }
 
@@ -69,6 +72,10 @@ resource "aws_security_group" "FUNCIONAL_SG" {
     "Name" = "FUNCIONAL_SG"
   }
 
+  depends_on = [
+    aws_vpc.VPC_1
+  ]
+
 }
 
 resource "aws_internet_gateway" "igw" {
@@ -77,6 +84,9 @@ resource "aws_internet_gateway" "igw" {
     "name" = "igw"
   }
 
+  depends_on = [
+    aws_vpc.VPC_1
+  ]
 }
 
 #Criando route table
@@ -104,11 +114,13 @@ resource "aws_route_table" "public_rt" {
   tags = {
     "name" = "public_rt"
   }
+  depends_on = [
+    aws_internet_gateway.igw
+  ]
 }
 
 #Associando route table com subnet
 resource "aws_route_table_association" "rt_public_subnet" {
   subnet_id      = aws_subnet.subnet_1.id
   route_table_id = aws_route_table.public_rt.id
-
 }

@@ -1,0 +1,19 @@
+#Insira aqui sua Access Key
+aws_access_key = ""
+#Insira aqui sua Secret key
+aws_secret_key = ""
+#Insira aqui a região padrão
+aws_region = ""
+#Insita aqui a availability zone padrão
+aws_availability_zone = ""
+#Insira aqui um nome padrão para sua instância
+aws_instance_name = ""
+#Insita aqui o tipo da sua instância
+aws_instance_type = ""
+#Insira aqui a AMI que deseja usar na instância
+ami = ""
+#Insira aqui o nome da chave que deseja usar para acessar a instância
+key_name = ""
+#Insira aqui a chave rsa pública a ser passada na criação da instância EC2
+keypair =  ""
+

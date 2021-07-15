@@ -1,2 +1,2 @@
 [funcional]
-52.73.40.7 ansible_user=centos ansible_ssh_common_args='-i ./desafio-funcional.pem -o StrictHostKeyChecking=no'
+3.90.251.251 ansible_user=centos ansible_ssh_common_args='-i ./desafio-funcional.pem -o StrictHostKeyChecking=no'

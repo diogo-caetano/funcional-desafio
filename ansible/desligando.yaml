@@ -1,9 +1,0 @@
-- hosts: funcional
-  become: true
-
-  tasks:
-    - name: Copia o script para o host remoto
-      copy: src=./script/shutdown.sh dest=/home/centos mode=0777
-
-    - name: Executa o script
-      command: sh /home/centos/shutdown.sh

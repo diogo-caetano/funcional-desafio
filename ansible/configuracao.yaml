@@ -22,7 +22,7 @@
         state: mounted
         fstype: xfs
 
-    - name: Instalação de repositorio do EPEL 
+    - name: Instalação de repositorio do NGINX 
       yum:
         update_cache: yes
         pkg:
@@ -36,13 +36,23 @@
         - zip
         - htop  
         - java-1.8.0-openjdk
-        - python-pip
-        
-    - name: Usa o PIP para instalar o Boto3 e Botocore
-      pip:
-        name:
-          - boto3
-          - botocore  
+        - unzip
+  
+    - name: Download awscliv2 installer.
+      unarchive:
+        src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+        dest: "{{ executable_temp_dir | default('/tmp') }}"
+        remote_src: yes
+        creates: /tmp/aws
+        mode: 0755
+
+    - name: Run the installer.
+      command:
+      args:
+        cmd: "{{ executable_temp_dir | default('/tmp') }}/aws/install"
+        creates: /usr/local/bin/aws
+      become: true
+      register: aws_install
 
     - name: Inserindo Página Index.html
       template:

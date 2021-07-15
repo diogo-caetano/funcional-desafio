@@ -1,10 +1,7 @@
 - hosts: funcional
   become: true
-  # vars:
-  #   - aws_access_key: "{{ aws_access_key }}"
-  #   - aws_secret_key: "{{ aws_secret_key }}"
-  # vars_files:
-  #   - secret-vars.yaml
+  vars_files:
+    - ./secret-vars.yaml
 
   tasks:
     - name: Copia o script para o host remoto
@@ -13,18 +10,26 @@
     - name: Executa o script
       command: sh /home/centos/backup.sh
 
-    # - name: Faz o upload do backup para um bucket na s3
-    #   community.aws.s3_sync:
-    #     aws_access_key: "{{my_access_key}}"
-    #     aws_secret_key: "{{my_secret_key}}"
-    #     bucket: desafiofuncionalbkp
-    #     file_root: /home/centos/
-    #     include: "*.tar.gz"
+    - name: Faz o upload do backup para um bucket na s3
+      community.aws.s3_sync:
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
+        bucket: desafiofuncionalbkp
+        file_root: /home/centos/
+        include: "*.tar.gz"
 
-    # - name: Faz o upload do backup em um bucket na s3
-    #   amazon.aws.aws_s3:
-    #     bucket: desafiofuncionalbkp
-    #     object: "/bkp/*.tar.gz"
-    #     src: /home/centos/
-    #     mode: put
-    #     permission: public-read   
+    - name: Get directory listing
+      find:
+        path: "/home/centos" 
+        file_type: any
+        patterns: "*.tar.gz"
+        hidden: yes
+      register: directory_content_result
+
+    - name: Remove directory content
+      file:
+        path: "{{ item.path }}" 
+        state: absent
+      with_items: "{{ directory_content_result.files }}" 
+      loop_control:
+        label: "{{ item.path }}" 
